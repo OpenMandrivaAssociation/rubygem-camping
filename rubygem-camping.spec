@@ -55,3 +55,10 @@ rm -rf %{buildroot}
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/51_upgrading
 %{ruby_gemdir}/cache/%{oname}-%{version}.gem
 %{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
+
+
+%changelog
+* Thu Dec 09 2010 Rémy Clouard <shikamaru@mandriva.org> 2.1-1mdv2011.0
++ Revision: 618259
+- import rubygem-camping
+
