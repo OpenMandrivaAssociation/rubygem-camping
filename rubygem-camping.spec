@@ -1,14 +1,13 @@
 %define oname camping
 
 Name:       rubygem-%{oname}
-Version:    2.1
-Release:    %mkrel 1
+Version:    2.1.532
+Release:    1
 Summary:    Minature rails for stay-at-home moms
 Group:      Development/Ruby
 License:    MIT
 URL:        http://camping.rubyforge.org/
-Source0:    http://rubygems.org/gems/%{oname}-%{version}.gem
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root
+Source0:    http://rubygems.org/gems/camping-2.1.532.gem
 Requires:   rubygems
 Requires:   ruby-rack >= 1.0
 BuildRequires: rubygems
@@ -24,7 +23,6 @@ minature rails for stay-at-home moms
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{ruby_gemdir}
 gem install --local --install-dir %{buildroot}%{ruby_gemdir} \
             --force --rdoc %{SOURCE0}
@@ -34,7 +32,6 @@ rmdir %{buildroot}%{ruby_gemdir}/bin
 find %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/bin -type f | xargs chmod a+x
 
 %clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root, -)
@@ -55,10 +52,3 @@ rm -rf %{buildroot}
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/51_upgrading
 %{ruby_gemdir}/cache/%{oname}-%{version}.gem
 %{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
-
-
-%changelog
-* Thu Dec 09 2010 Rémy Clouard <shikamaru@mandriva.org> 2.1-1mdv2011.0
-+ Revision: 618259
-- import rubygem-camping
-
