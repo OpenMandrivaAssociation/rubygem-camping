@@ -44,11 +44,11 @@ find %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/bin -type f | xargs chm
 %{ruby_gemdir}/gems/%{oname}-%{version}/test/
 %doc %{ruby_gemdir}/doc/%{oname}-%{version}
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/Rakefile
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/README
+# %doc %{ruby_gemdir}/gems/%{oname}-%{version}/README
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/CHANGELOG
 %doc %{ruby_gemdir}/gems/%{oname}-%{version}/COPYING
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/01_introduction
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/02_getting_started
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/51_upgrading
+# %doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/01_introduction
+# %doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/02_getting_started
+# %doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/51_upgrading
 %{ruby_gemdir}/cache/%{oname}-%{version}.gem
 %{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
