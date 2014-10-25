@@ -16,10 +16,10 @@ Minature rails for stay-at-home moms.
 
 %files
 %{_bindir}/camping
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/
-%{ruby_gemdir}/gems/%{rbname}-%{version}/bin/
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/
-%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
+%dir %{gem_dir}/gems/%{rbname}-%{version}/
+%{gem_dir}/gems/%{rbname}-%{version}/bin/
+%{gem_dir}/gems/%{rbname}-%{version}/lib/
+%{gem_dir}/specifications/%{rbname}-%{version}.gemspec
 
 #----------------------------------------------------------------------------
 
@@ -33,11 +33,11 @@ Conflicts:	%{name} < 2.1.532
 Documents, RDoc & RI documentation for %{name}.
 
 %files doc
-%{ruby_gemdir}/doc/%{rbname}-%{version}
-%{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
-%{ruby_gemdir}/gems/%{rbname}-%{version}/COPYING
-%{ruby_gemdir}/gems/%{rbname}-%{version}/README.md
-%{ruby_gemdir}/gems/%{rbname}-%{version}/book/
+%{gem_dir}/doc/%{rbname}-%{version}
+%{gem_dir}/gems/%{rbname}-%{version}/CHANGELOG
+%{gem_dir}/gems/%{rbname}-%{version}/COPYING
+%{gem_dir}/gems/%{rbname}-%{version}/README.md
+%{gem_dir}/gems/%{rbname}-%{version}/book/
 
 #----------------------------------------------------------------------------
 
