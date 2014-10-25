@@ -1,64 +1,51 @@
-%define oname camping
+%define rbname camping
 
-Name:       rubygem-%{oname}
-Version:    2.1
-Release:    %mkrel 1
-Summary:    Minature rails for stay-at-home moms
-Group:      Development/Ruby
-License:    MIT
-URL:        http://camping.rubyforge.org/
-Source0:    http://rubygems.org/gems/%{oname}-%{version}.gem
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root
-Requires:   rubygems
-Requires:   ruby-rack >= 1.0
-BuildRequires: rubygems
-BuildArch:  noarch
-Provides:   rubygem(%{oname}) = %{version}
+Summary:	Minature rails for stay-at-home moms
+Name:		rubygem-%{rbname}
+Version:	2.1.532
+Release:	1
+License:	MIT
+Group:		Development/Ruby
+Url:		https://rubygems.org/gems/%{rbname}
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+BuildRequires:	rubygems
+BuildArch:	noarch
 
 %description
-minature rails for stay-at-home moms
-
-
-%prep
-
-%build
-
-%install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}%{ruby_gemdir}
-gem install --local --install-dir %{buildroot}%{ruby_gemdir} \
-            --force --rdoc %{SOURCE0}
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{ruby_gemdir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}%{ruby_gemdir}/bin
-find %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/bin -type f | xargs chmod a+x
-
-%clean
-rm -rf %{buildroot}
+Minature rails for stay-at-home moms.
 
 %files
-%defattr(-, root, root, -)
 %{_bindir}/camping
-%dir %{ruby_gemdir}/gems/%{oname}-%{version}/
-%{ruby_gemdir}/gems/%{oname}-%{version}/bin/
-%{ruby_gemdir}/gems/%{oname}-%{version}/examples/
-%{ruby_gemdir}/gems/%{oname}-%{version}/extras/
-%{ruby_gemdir}/gems/%{oname}-%{version}/lib/
-%{ruby_gemdir}/gems/%{oname}-%{version}/test/
-%doc %{ruby_gemdir}/doc/%{oname}-%{version}
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/Rakefile
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/README
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/CHANGELOG
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/COPYING
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/01_introduction
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/02_getting_started
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/book/51_upgrading
-%{ruby_gemdir}/cache/%{oname}-%{version}.gem
-%{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/
+%{ruby_gemdir}/gems/%{rbname}-%{version}/bin/
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
 
+#----------------------------------------------------------------------------
 
-%changelog
-* Thu Dec 09 2010 Rémy Clouard <shikamaru@mandriva.org> 2.1-1mdv2011.0
-+ Revision: 618259
-- import rubygem-camping
+%package doc
+Summary:	Documentation for %{name}
+Group:		Documentation
+Requires:	%{name} = %{EVRD}
+Conflicts:	%{name} < 2.1.532
 
+%description doc
+Documents, RDoc & RI documentation for %{name}.
+
+%files doc
+%{ruby_gemdir}/doc/%{rbname}-%{version}
+%{ruby_gemdir}/gems/%{rbname}-%{version}/CHANGELOG
+%{ruby_gemdir}/gems/%{rbname}-%{version}/COPYING
+%{ruby_gemdir}/gems/%{rbname}-%{version}/README.md
+%{ruby_gemdir}/gems/%{rbname}-%{version}/book/
+
+#----------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+%gem_build
+
+%install
+%gem_install
