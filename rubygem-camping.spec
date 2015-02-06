@@ -3,7 +3,7 @@
 Summary:	Minature rails for stay-at-home moms
 Name:		rubygem-%{rbname}
 Version:	2.1.532
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Ruby
 Url:		https://rubygems.org/gems/%{rbname}
